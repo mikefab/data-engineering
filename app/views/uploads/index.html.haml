@@ -1,0 +1,10 @@
+%form(method="post" id = 'document_form' enctype='multipart/form-data')   
+	%input(type = 'file' 	 id = 'myfile' name = 'myfile')
+	%input(type = 'hidden' id = 'test' name = 'test')
+	%input(type = 'button' id = 'the_button' value='Upload!')
+%p
+
+#jquery_validation_warn_notice
+
+- if @total
+	#{"Total amount for this group of orders is: $#{@total}"}
