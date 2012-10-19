@@ -4,11 +4,6 @@ class Order < ActiveRecord::Base
   belongs_to :merchant
   belongs_to :item
   belongs_to :purchaser
-  
-  validates :amount, :presence => true
-  validates :item_id, :presence => true
-  validates :merchant_id, :presence => true    
-  validates :purchaser_id, :presence => true    
     
   def self.process_orders(orders_string)  #Loops through orders, saving each to the db, and returns the sum of orders 
     orders = orders_string.split(/\n/)                  #convert string to array of orders
