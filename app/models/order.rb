@@ -1,4 +1,5 @@
 require 'bigdecimal'
+
 class Order < ActiveRecord::Base
   attr_accessible :amount, :item_id, :merchant_id, :purchaser_id
   
@@ -11,8 +12,8 @@ class Order < ActiveRecord::Base
     orders.shift                                        #remove header
     total = 0                                           #record sum value of orders in file
     total = BigDecimal(0)
-    orders.map{|order| total += save_order(order).to_f} #send order to function that normalizes data and saves to db, while total is summed.
-    return (("%.2f" % total)).commify                    #ensure that the sum of all orders is commified and ends with two digets past the decimal
+    orders.map{|order| total += save_order(order)} #send order to function that normalizes data and saves to db, while total is summed.
+    total #return sum of orders
   end
   
   def self.save_order(order)

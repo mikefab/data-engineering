@@ -7,4 +7,4 @@
 #jquery_validation_warn_notice
 
 - if @total
-	#{"Total amount for this group of orders is: $#{@total}"}
+	#{"Total amount for this group of orders is: #{number_to_currency(@total)}"}
